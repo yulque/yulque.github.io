@@ -1,0 +1,131 @@
+/** Add any CSS you need to this file. */
+
+/* hyper link */
+a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #83502e;
+}
+
+/* layout */
+body {
+  color: #181818;
+  background-color: #fff;
+  font-family: 'Ariel', 'Helvetica';
+  font-weight: 400;
+  font-size: 1.4rem;
+}
+.header {
+  height: 70px;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  position: sticky;
+  background-color: #d2a56d;
+  /* line-height: 35px; */
+  display: inline-block;
+  vertical-align: middle;
+}
+.logo {
+  float: left;
+  /* position: fixed; */
+  font-size: 30px;
+  background-color: yellow;
+}
+.contact {
+  height: 70px;
+  font-size: 30px;
+  width: 15%;
+  float: right;
+  background-color: green;
+  text-align: center;
+  vertical-align: ;
+}
+
+/*- side menu -*/
+.menu-bar {
+  height: 30%;
+  width: 150px;
+  float: left;
+  margin: 1%;
+  background-color: orange;
+  margin-top: 45%;
+  position: fixed;
+}
+.menu-bar ul {
+  margin-left: 10px;
+  list-style: none;
+  cursor: pointer;
+  padding: 20px;
+}
+.menu-bar ul li {
+  padding: 10px;
+}
+.menu-bar ul li a {
+  font-size: 16px;
+  font-weight: bold;
+  color: #83502e;
+}
+/*----------- slider -----------*/
+#slider {
+  width: 50%;
+  margin-left: 10%;
+  margin-right: 20%;
+  padding: 0 15px;
+  position: fixed;
+}
+.feature {
+  margin: 50px 0;
+}
+.feature img {
+  width: 220px;
+  height: 150px;
+  padding: 20px 0;
+  transition: 1s;
+  cursor: pointer;
+}
+.feature img:hover {
+  transform: scale(1.1);
+}
+
+/* <!-- on sale --> */
+.on-sale {
+  width: 80%;
+  margin-top: 40%;
+  margin-left: 10%;
+  padding: 0 15px;
+  position: relative;
+}
+
+.title-box {
+  margin-left: 20%;
+  margin-top: 5%;
+  width: 180px;
+  padding: 10px 10px;
+  height: 30px;
+  /* margin-bottom: 30px; */
+  /* display: flex; */
+}
+
+.container {
+  display: flex;
+}
+
+.container img {
+  width: 320px;
+  height: 200px;
+  padding: 10px 10px;
+}
+
+.product-bottom {
+  padding: 0;
+}
+
+/* contacts */
+#order_number {
+  display: none;
+}
+label[for='order_number'] {
+  display: none;
+}
