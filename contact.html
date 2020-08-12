@@ -12,21 +12,22 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript" src="script.js"></script>
   </head>
   <body>
     <header>
       <div class="header">
         <div class="logo">
           <a href="index.html"><img id="logo" src="images/logo.png" width="70" height="70"/></a>
-          <a href="index.html">Giant Cat|Contact</a>
+          <a href="index.html">Giant Cat</a>
         </div>
         <div class="contact"><a href="contact.html">Contact</a></div>
       </div>
     </header>
 
     <main>
-      <h1>Send us a message!</h1>
-      <div>
+      <div id="contact_title"><h3>Send us a message!</h3></div>
+      <div class="input_container">
         <form id="contact" name="contact" action="https://httpbin.org/post" method="POST">
           <label for="first_name">First Name:</label><br />
           <input
@@ -34,7 +35,8 @@
             name="first_name"
             id="first_name"
             autocomplete="first_name"
-            placeholder="first name"
+            placeholder="John"
+            title="Your first name here please"
             required
           /><br />
           <label for="last_name">Last Name:</label><br />
@@ -43,7 +45,7 @@
             name="last name"
             id="last_name"
             autocomplete="last_name"
-            placeholder="last name"
+            placeholder="Doe"
             required
           /><br />
           <label for="email">Email address:</label><br />
@@ -52,7 +54,7 @@
             name="email"
             id="email"
             autocomplete="email"
-            placeholder="Your email"
+            placeholder="email@email.com"
             required
           /><br />
           <label for="address">Address:</label><br />
@@ -89,6 +91,10 @@
             pattern="([0-9]{3}-[0-9]{3}-[0-9]{3})|([0-9]{10})"
             required
           /><br />
+          <input
+            type="checkbox" id="phone_check" name="phone_check">
+            <label for="phone_check">Would you like to be phoned?</label>
+            <br />
           <!-- - Postal Code (must be a valid Canadian Postal Code, use regex) -->
           <label for="Postal Code">Postal code:</label><br />
           <input
@@ -100,19 +106,18 @@
             pattern="([a-z]|[A-Z]){1}[0-9]([a-z]|[A-Z]){1} [0-9]([a-z]|[A-Z])[0-9]"
             required
           /><br />
-          <input
-            type="checkbox" id="phone_check" name="phone_check">
-            <label for="phone_check">Would you like to be phoned?</label>
-            <br />
+          <br />
+          
         <!--- Radio Options to specify what this is about: one of "Question",
           "Comment", or "Order Problem". If the user selects "Order Problem",
           dynamically reveal another input box to enter the order number. In the
           case of "Comment" or "Question" hide this input box.
         -->
+        <h6>What's your message about?</h6>
         <input type="radio" id="question" name="problem_category" value="question">
-        <label for="question">Question</label><br/>
+        <label for="question">Question</label>
         <input type="radio" id="comment" name="problem_category" value="comment">
-        <label for="comment">Comment</label><br/>
+        <label for="comment">Comment</label>
         <input type="radio" id="order_problem" name="problem_category" value="order_problem">
         <label for="order_problem">Order problem</label><br/>
         <label for="order_number" name="problem_category" id="order_number_label">Order number</label>
@@ -121,8 +126,7 @@
         <!--
         - A large area to enter the message that they want to send
         - A hidden input field with your name-->
-          <br>
-          <label for="message">Feedback/Inquiries</label><br />
+          
           <textarea
             id="message"
             name="message"
@@ -130,8 +134,8 @@
           ></textarea>
           <br />
           <br />
-          <button type="submit">Submit</button>
-          <input type="hidden" value="Yuri">
+          <input type="submit" vaule="submit"></button>
+          <input type="hidden" value="Yuri Yoon">
         </form>
       </div>
     </main>
@@ -170,6 +174,31 @@
     all data defined in the form above (e.g., visible and hidden fields).
 
   -->
-  <script type="text/javascript" src="script.js"></script>
+  <footer class="footer">
+    <!--Below the items, a footer with the name of the store, any relevant links you
+need to give users, as well as a small HTML form for entering an Email
+address and clicking a "Subscribe" button to subscribe to the store's
+newsletter. Use https://formspree.io/ to automatically submit the form to
+your email address (i.e., when a user fills out their email address and
+clicks submit, *you* should get that information sent to your email
+address via formspree.io).  Make sure you setup your account on
+https://formspree.io/. -->
+    <div id="footer_contents">
+      <form action="https://formspree.io/yuriyoonkim@gmail.com" method="POST">
+        <a href="https://smartstore.naver.com/illust_jayoi" target="_blank"
+          >Giant Cat Store</a>
+           | &copy; Copyright 2020, Lee Ja-young. All rights reserved.<br>
+        <label for="subscr_email">Are you interested of our newsletter? </label>
+          <input
+          type="text"
+          id="subscr_email"
+          name="subsicr_email"
+          placeholder="email@email.com"
+        />
+        <input id="contact_button" type="submit" value="subscribe" />
+      </form>
+    </div>
+  </footer>
+  
 </body>
 </html>

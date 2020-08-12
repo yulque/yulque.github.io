@@ -1,8 +1,46 @@
 /** Add any CSS you need to this file. */
-
+/**
+ * Load two web fonts from Google Fonts:
+ *  1. EB Garamond - https://fonts.google.com/specimen/EB+Garamond
+ *  2. Reem Kufi   - https://fonts.google.com/specimen/Reem+Kufi
+ * 3. Resursive - https://fonts.google.com/specimen/Recursive
+ */
+/*@import url('https://fonts.googleapis.com/css2?family=EB+Garamond&family=Reem+Kufi&family=Recursive&display=swap');*/
+@import url('https://fonts.googleapis.com/css2?family=Mulish&family=Recursive&display=swap');
+/**
+  * Load the Irvin Heading font -  v
+  * NOTE: on GitHub, which is loading over HTTPS, these fonts have to be loaded
+  * over HTTPS vs. HTTP, so instead of using @import url('https://db.onlinewebfonts.com/c/1e44faec07b8b81f60a3215d76bd0086?family=Irvin');
+  * I'm defining the font-face manually with proper HTTPS URLs
+  */
+@font-face {
+  font-family: 'Irvin';
+  src: url('https://db.onlinewebfonts.com/t/1e44faec07b8b81f60a3215d76bd0086.eot'); /* IE9*/
+  src: url('https://db.onlinewebfonts.com/t/1e44faec07b8b81f60a3215d76bd0086.eot?#iefix')
+      format('embedded-opentype'),
+    /* IE6-IE8 */ url('https://db.onlinewebfonts.com/t/1e44faec07b8b81f60a3215d76bd0086.woff2')
+      format('woff2'),
+    /* chrome firefox */
+      url('https://db.onlinewebfonts.com/t/1e44faec07b8b81f60a3215d76bd0086.woff') format('woff'),
+    /* chrome firefox */ url('https://db.onlinewebfonts.com/t/1e44faec07b8b81f60a3215d76bd0086.ttf')
+      format('truetype'),
+    /* chrome firefox opera Safari, Android, iOS 4.2+*/
+      url('https://db.onlinewebfonts.com/t/1e44faec07b8b81f60a3215d76bd0086.svg#Irvin')
+      format('svg'); /* iOS 4.1- */
+}
+@font-face {
+  font-family: 'Letter Gothic MT Std';
+  src: url('https://db.onlinewebfonts.com/t/f36dab469baf8a3768a791fa84930f3c.eot');
+  src: url('https://db.onlinewebfonts.com/t/f36dab469baf8a3768a791fa84930f3c.eot?#iefix')
+      format('embedded-opentype'),
+    url('https://db.onlinewebfonts.com/t/f36dab469baf8a3768a791fa84930f3c.woff2') format('woff2'),
+    url('https://db.onlinewebfonts.com/t/f36dab469baf8a3768a791fa84930f3c.woff') format('woff'),
+    url('https://db.onlinewebfonts.com/t/f36dab469baf8a3768a791fa84930f3c.ttf') format('truetype'),
+    url('https://db.onlinewebfonts.com/t/f36dab469baf8a3768a791fa84930f3c.svg#Letter Gothic MT Std')
+      format('svg');
+}
 /* hyper link */
 a {
-  font-size: 16px;
   font-weight: bold;
   color: #83502e;
 }
@@ -11,50 +49,84 @@ a {
 body {
   color: #181818;
   background-color: #fff;
-  font-family: 'Ariel', 'Helvetica';
+  font-family: Recursive, 'Helvetica';
   font-weight: 400;
   font-size: 1.4rem;
 }
+
+.item1 {
+  /* grid-area: header; */
+  grid-column-start: 1;
+  grid-column-end: 9;
+}
+.item2 {
+  /* grid-area: menu; */
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+.item3 {
+  /* grid-area: main; */
+  grid-column-start: 2;
+  grid-column-end: 3;
+}
+.item4 {
+  /* grid-area: footer; */
+  /* grid-column-start: 1;
+  grid-column-end: 7; */
+  grid-column: 1/3;
+  grid-row: 6/7;
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: minmax(130px, 150px) 8fr;
+  grid-template-rows: 70px 8fr 1fr;
+  grid-gap: 10px;
+}
+header {
+  font-family: 'Letter Gothic MT Std', serif;
+  font-size: 10px;
+}
+header h3 {
+  font-size: 30px;
+}
 .header {
   height: 70px;
-  width: 100%;
   margin: 0;
   padding: 0;
   border: 0;
   position: sticky;
-  background-color: #d2a56d;
+  background-color: #cedebd;
   /* line-height: 35px; */
-  display: inline-block;
+  /* display: inline-block; */
   vertical-align: middle;
 }
 .logo {
   float: left;
-  /* position: fixed; */
-  font-size: 30px;
-  background-color: yellow;
+  width: 80%;
+  font-size: 15px;
+
+  overflow: hidden;
 }
 .contact {
   height: 70px;
-  font-size: 30px;
-  width: 15%;
+  font-size: 13px;
+  width: 100px;
   float: right;
-  background-color: green;
-  text-align: center;
-  vertical-align: ;
+  margin-top: 2em;
 }
 
 /*- side menu -*/
 .menu-bar {
-  height: 30%;
-  width: 150px;
-  float: left;
+  /* height: 30%; */
+  /* width: 150px; */
+  /* float: left; */
   margin: 1%;
-  background-color: orange;
-  margin-top: 45%;
+  background-color: #86c4ba;
   position: fixed;
 }
 .menu-bar ul {
-  margin-left: 10px;
+  /* margin-left: 10px; */
   list-style: none;
   cursor: pointer;
   padding: 20px;
@@ -65,43 +137,26 @@ body {
 .menu-bar ul li a {
   font-size: 16px;
   font-weight: bold;
-  color: #83502e;
 }
-/*----------- slider -----------*/
-#slider {
-  width: 50%;
-  margin-left: 10%;
-  margin-right: 20%;
-  padding: 0 15px;
-  position: fixed;
-}
-.feature {
-  margin: 50px 0;
-}
-.feature img {
-  width: 220px;
-  height: 150px;
-  padding: 20px 0;
-  transition: 1s;
-  cursor: pointer;
-}
-.feature img:hover {
-  transform: scale(1.1);
-}
-
 /* <!-- on sale --> */
+section {
+  font-family: Recursive;
+}
 .on-sale {
-  width: 80%;
-  margin-top: 40%;
-  margin-left: 10%;
+  overflow: auto;
+  margin: auto;
   padding: 0 15px;
-  position: relative;
+  height: 100%;
+  width: 90%;
+  margin-left: 10%;
+  /* position: relative; */
 }
 
 .title-box {
-  margin-left: 20%;
-  margin-top: 5%;
-  width: 180px;
+  margin-left: 5%;
+  margin-bottom: 5%;
+  /* margin-top: 5%; */
+  /* width: 180px; */
   padding: 10px 10px;
   height: 30px;
   /* margin-bottom: 30px; */
@@ -109,9 +164,49 @@ body {
 }
 
 .container {
-  display: flex;
-}
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 320px);
+  grid-column-gap: 1em;
+  grid-row-gap: 1em;
+  /*    
+  flex-wrap: wrap;
+  margin-top: 0;
+  border-top: 0;
+  padding-top: 0; */
 
+  /* display: grid;
+  
+  grid-template-columns: repeat(3, 1fr);
+   grid-auto-rows: 270px;
+  grid-gap: 1em; */
+}
+.filterDiv {
+  /* background-color: #2196f3; */
+  /* color: #ffffff; */
+  width: 320px;
+  line-height: 100px;
+  text-align: center;
+  margin: 2px;
+  display: none; /* Hidden by default */
+}
+.show {
+  display: grid;
+}
+/* buttons */
+.btn {
+  padding: 12px 16px;
+  width: 120px;
+  height: 50px;
+  background-color: #86c4ba;
+  cursor: pointer;
+}
+.btn:hover {
+  background-color: #ddd;
+}
+.btn.active {
+  background-color: #666;
+  color: white;
+}
 .container img {
   width: 320px;
   height: 200px;
@@ -121,8 +216,48 @@ body {
 .product-bottom {
   padding: 0;
 }
+/*footer*/
+.footer {
+  height: 120px;
+  background-color: #cedebd;
+}
+#footer_contents {
+  position: relative;
+  top: 30%;
+  margin-top: 5em;
+  text-align: center;
+  font-size: 10px;
+}
+#footer_contents a {
+  text-decoration: underline;
+}
+#footer_contents input,
+label {
+  font-size: 12px;
+}
+#footer_contents input[type='submit'] {
+  border: none;
+}
 
 /* contacts */
+#contact_title {
+  margin-top: 3%;
+  margin-left: 10%;
+}
+.input_container {
+  margin-left: 10%;
+}
+.input_container input[type='submit'] {
+  font-size: 15px;
+  background-color: #cedebd; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
 #order_number {
   display: none;
 }
