@@ -17,6 +17,7 @@
   </head>
   <body>
     <div class="grid-container">
+      <!--req1. header-->
       <div class="item1">
         <header>
           <div class="header">
@@ -30,7 +31,7 @@
         </header>
       </div>
 
-      <!-- menu bar -->
+      <!--req3. menu bar only showing selected category-->
       <div class="item2">
         <div class="menu-bar" id="menu-bar">
           <button class="btn active" onclick="filterSelect('all')">
@@ -42,11 +43,8 @@
           <button class="btn" onclick="filterSelect('sticker')">sticker</button>
         </div>
       </div>
-<!--    - a picture
-        - the item's name/title
-        - a more complete description of the item
-        - a category (i.e., each item must belong to a category)
-        - a price.-->
+      <!--req2. multi-column items including picture, item's name/title, 
+        a more complete description of the item, a category  belong -->
       <div class="item3">
         <div id="on-sale">
           <div class="title-box" id="title-box" filterDiv><h3>All</h3></div>
@@ -55,16 +53,12 @@
           </div>
         </div>
       </div>
-      <div class="item4">
-        <footer class="footer">
-          <!--Below the items, a footer with the name of the store, any relevant links you
+      <!--req4. a footer with the name of the store, any relevant links you
       need to give users, as well as a small HTML form for entering an Email
       address and clicking a "Subscribe" button to subscribe to the store's
-      newsletter. Use https://formspree.io/ to automatically submit the form to
-      your email address (i.e., when a user fills out their email address and
-      clicks submit, *you* should get that information sent to your email
-      address via formspree.io).  Make sure you setup your account on
-      https://formspree.io/. -->
+      newsletter. -->
+      <div class="item4">
+        <footer class="footer">
           <div id="footer_contents">
             <form action="https://formspree.io/yuriyoonkim@gmail.com" method="POST">
               <a href="https://smartstore.naver.com/illust_jayoi" target="_blank"
