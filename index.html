@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Giant Cat</title>
 
     <link
@@ -13,7 +14,6 @@
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"
     />
     <link rel="stylesheet" href="style.css" />
-    <link rel="import" href="contact.html">
   </head>
   <body>
     <div class="grid-container">
@@ -23,6 +23,8 @@
           <div class="header">
             <div class="logo">
               <a href="index.html"><img id="logo" src="images/logo.jpg" width="70" height="70"/></a>
+            </div>
+            <div class="store-name">
               <a href="index.html">Giant Cat's Store</a>
               - Make your day cuter!
             </div>
@@ -37,9 +39,7 @@
           <button class="btn active" onclick="filterSelect('all')">
             Show all
           </button>
-          <br />
           <button class="btn" onclick="filterSelect('bag')">bag</button>
-          <br />
           <button class="btn" onclick="filterSelect('sticker')">sticker</button>
         </div>
       </div>
@@ -48,9 +48,7 @@
       <div class="item3">
         <div id="on-sale">
           <div class="title-box" id="title-box" filterDiv><h3>All</h3></div>
-          <div id="container" class="container">
-            </div>
-          </div>
+          <div id="container" class="container"></div>
         </div>
       </div>
       <!--req4. a footer with the name of the store, any relevant links you
@@ -59,18 +57,21 @@
       newsletter. -->
       <div class="item4">
         <footer class="footer">
-          <div id="footer_contents">
+          <div class="footer-contents" id="footer-contents">
             <!--req8. all copyright is on illustrator Lee Ja-young and have permission to use-->
+            <a href="https://smartstore.naver.com/illust-jayoi" target="-blank"
+              >Giant Cat's Store</a
+            >
+            | &copy; Copyright 2020, Lee Ja-young. All rights reserved.<br />
             <form action="https://formspree.io/yuriyoonkim@gmail.com" method="POST">
-              <a href="https://smartstore.naver.com/illust_jayoi" target="_blank"
-                >Giant Cat's Store</a>
-                 | &copy; Copyright 2020, Lee Ja-young. All rights reserved.<br>
-              <label for="subscr_email">Are you interested of our newsletter? </label>
-                <input
+              <label for="subscr-email">Are you interested of our newsletter? </label>
+              <input
                 type="email"
-                id="subscr_email"
-                name="subsicr_email"
+                id="subscr-email"
+                name="subsicr-email"
                 placeholder="email@email.com"
+                autocomplete="email"
+                required
               />
               <input type="submit" value="subscribe" />
             </form>
@@ -142,8 +143,8 @@
       and CSS Grid can help you create professional looking layouts.  Here
       are some guides to get you started:
 
-       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
-       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout/Basic_Concepts_of_Grid_Layout
+       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS-Flexible-Box-Layout/Basic-Concepts-of-Flexbox
+       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS-Grid-Layout/Basic-Concepts-of-Grid-Layout
        
       You are also welcome to use existing CSS libraries to help you with your layout,
       but you must also include your own styles (i.e., you can't use a library
