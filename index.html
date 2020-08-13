@@ -2,9 +2,8 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Giant Cat</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giant Cat|Contact</title>
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -13,12 +12,14 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />  
   </head>
   <body>
-    <div class="grid-container">
+    <!--Req1. Use the same header/footer-->
+    <div class="contact-container">
       <!--req1. header-->
-      <div class="item1">
+       <!--req1. header-->
+       <div class="item1">
         <header>
           <div class="header">
             <div class="logo">
@@ -30,31 +31,141 @@
             </div>
             <div class="contact"><a href="contact.html">Contact Us</a></div>
           </div>
-        </header>
-      </div>
-
-      <!--req3. menu bar only showing selected category-->
-      <div class="item2">
-        <div class="menu-bar" id="menu-bar">
-          <button class="btn active" onclick="filterSelect('all')">
-            Show all
-          </button>
-          <button class="btn" onclick="filterSelect('bag')">bag</button>
-          <button class="btn" onclick="filterSelect('sticker')">sticker</button>
+         </header>
         </div>
-      </div>
-      <!--req2. multi-column items including picture, item's name/title, 
-        a more complete description of the item, a category  belong -->
-      <div class="item3">
-        <div id="on-sale">
-          <div class="title-box" id="title-box" filterDiv><h3>All</h3></div>
-          <div id="container" class="container"></div>
+        <div class="item5">
+          <div class="contact-title" id="contact-title"><h3>Send us a message!</h3></div>
+          <div class="input-container">
+            <!--Req3. The form should submit to https://httpbin.org/post using the POST method,
+            and only allow the user to submit when all data has been entered and there
+            aren't any validation errors. -->
+            <form id="contact" name="contact" action="https://httpbin.org/post" method="POST">
+              <!--Req2. Use input tag for first name-->
+              <label for="first-name">First Name:</label><br />
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                autocomplete="first-name"
+                placeholder="John"
+                title="Your first name here please"
+                required
+              /><br />
+              <!--Req2. Use input tag for last name-->
+              <label for="last-name">Last Name:</label><br />
+              <input
+                type="text"
+                name="last name"
+                id="last-name"
+                autocomplete="last-name"
+                placeholder="Doe"
+                required
+              /><br />
+              <!--Req2. Use input tag for email address-->
+              <label for="email">Email address:</label><br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="email"
+                placeholder="email@email.com"
+                size="30"
+                required
+              /><br />
+              <!--Req2. Use input tag for address-->
+              <label for="address">Address:</label><br />
+              <input
+                type="text"
+                name="address"
+                id="address"
+                autocomplete="address"
+                placeholder="Enter your address"
+                size="30"
+                required
+              /><br />
+              <!--Req2. Use input tag for city-->
+              <label for="city">City:</label><br />
+              <input
+                list="cityList"
+                name="city"
+                id="city"
+                autocomplete="city"
+                placeholder="city"
+                required
+              /><datalist id="cityList">
+                <option value="Toronto"> </option>
+                <option value="Montreal"> </option>
+                <option value="Calgary"> </option>
+                <option value="Ottawa"> </option>
+                <option value="Edmonton"> </option>
+                <option value="Mississauga"> </option>
+                <option value="Winnipeg"> </option>
+                <option value="Vancouver"> </option>
+                <option value="Brampton"> </option>
+                <option value="Hamilton"> </option>
+                <!-- all canadian cities list needed?? -->
+              </datalist>
+              </br>
+              <!--Req2. Use input tag for phone number. Validation check with regx-->
+              <label for="phone">Phone number:</label><br />
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                autocomplete="phone"
+                placeholder="647-111-2222"
+                pattern="([0-9]{3}-[0-9]{3}-[0-9]{3})|([0-9]{10})"
+                required
+              /><br />
+              <!--Req2. Checkbox Option to be phoned-->
+              <input
+                type="checkbox" id="phone-check" name="phone-check">
+                <label for="phone-check">Would you like to be phoned?</label>
+                <br />
+              <!--Req2. Postal Code (must be a valid Canadian Postal Code, use regex) -->
+              <label for="Postal Code">Postal code:</label><br />
+              <input
+                type="text"
+                name="postal-code"
+                id="postal-code"
+                autocomplete="postal-code"
+                placeholder="M1H 2N1"
+                pattern="([a-z]|[A-Z]){1}[0-9]([a-z]|[A-Z]){1} [0-9]([a-z]|[A-Z])[0-9]"
+                required
+              /><br />
+              <br />
+              
+              <!---Req2. Radio Options to specify what this is about: one of "Question",
+              "Comment", or "Order Problem". If the user selects "Order Problem",
+              dynamically reveal another input box to enter the order number. In the
+              case of "Comment" or "Question" hide this input box.
+              -->
+              <h6>What's your message about?</h6>
+              <input type="radio" id="question" name="problem-category" value="question">
+              <label for="question">Question</label>
+              <input type="radio" id="comment" name="problem-category" value="comment">
+              <label for="comment">Comment</label>
+              <input type="radio" id="order-problem" name="problem-category" value="order-problem">
+              <label for="order-problem">Order problem</label><br/>
+              <label for="order-number" name="problem-category" id="order-number-label">Order number:</label>
+              <input type="hidden" id="order-number" name="problem-category" placeholder="#123456">
+              <!--Req2. A large area to enter the message that they want to send-->
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Please leave your message here"
+                rows="4" cols="50"
+              ></textarea>
+              <br />
+              <br />
+              <input type="submit" vaule="submit">
+              <!-- A hidden input field with your name -->
+              <input type="hidden" value="Yuri Yoon">
+            </form>
+          </div>
         </div>
-      </div>
-      <!--req4. a footer with the name of the store, any relevant links you
-      need to give users, as well as a small HTML form for entering an Email
-      address and clicking a "Subscribe" button to subscribe to the store's
-      newsletter. -->
+  
+      <!--Req1. Use the same header/footer-->
       <div class="item4">
         <footer class="footer">
           <div class="footer-contents" id="footer-contents">
@@ -79,97 +190,41 @@
         </footer>
       </div>
     </div>
-    <script type="text/javascript" src="script.js"></script>
-  </body>
+  <script type="text/javascript" src="script.js"></script>
+</body>
 </html>
-<!--
-      Part 1: Main Store Page
+<!--    
 
-      Requirements:
+    Part 2: Contact Us Page
 
-      1. Header across the top must include your store's name, a logo,
-      and use a different background colour, web font, etc.  You must also include
-      a link to your contact.html page.  Your header should include info about
-      what the store is, what it sells, etc.  Use some images to try and draw
-      the user in.  NOTE: place all your site's images in the `src/images/` directory.
+    Requirements:
 
-      2. Below the header, a multi-column layout of items you can purchase in the
-      store.  You must have at least 10 items in your store, and at least 2
-      categories of items. For example, if you are selling clothing, you might
-      have categories for Men, Women, and Children, and each category would have
-      its own set of items.  Each item should include:
-      
-        - a picture
-        - the item's name/title
-        - a more complete description of the item
-        - a category (i.e., each item must belong to a category)
-        - a price.
-      
-      Each item should be its own "card" (i.e., some kind of box around each item
-      separating one from the next, with suitable whitespace between).
+    1. Use the same header/footer, colours, fonts, etc. as your index.html page.
+    It should be obvious to the user they they are still on the same site, and that
+    contact.html is part of your store.
 
-      3. A sidebar (left or right, depending on your design) of the item layout
-      section, showing the different categories of items in your store.  If a
-      user clicks on one of the categories, use CSS and JavaScript to hide all
-      other items in the store (i.e., only show items for the chosen category).
-      Make sure you include a way to return to seeing all categories, and make it
-      obvious to the user that they are only seeing a partial list of items when
-      you filter by category (i.e., use CSS and HTML to change things somehow).
+    2. Include an HTML Form for the user to fill out his or her information along
+    with their message to you. Your form should including the following, and all
+    fields should be mandatory unless otherwise noted, and use the most appropriate <input> type:
+    
+        - First Name
+        - Last Name
+        - Email Address
+        - Address
+        - City (use a <datalist> for autocomplete of common Canadian cities)
+        - Phone Number (must be a valid Canadian Phone Number, use regex)
+        - Postal Code (must be a valid Canadian Postal Code, use regex)
+        - Checkbox Option to be phoned ("Would you like to be phoned?")
+        - Radio Options to specify what this is about: one of "Question",
+          "Comment", or "Order Problem". If the user selects "Order Problem",
+          dynamically reveal another input box to enter the order number. In the
+          case of "Comment" or "Question" hide this input box.
+        - A large area to enter the message that they want to send
+        - A hidden input field with your name
 
-      4. Below the items, a footer with the name of the store, any relevant links you
-      need to give users, as well as a small HTML form for entering an Email
-      address and clicking a "Subscribe" button to subscribe to the store's
-      newsletter. Use https://formspree.io/ to automatically submit the form to
-      your email address (i.e., when a user fills out their email address and
-      clicks submit, *you* should get that information sent to your email
-      address via formspree.io).  Make sure you setup your account on
-      https://formspree.io/.
+    3. The form should submit to https://httpbin.org/post using the POST method,
+    and only allow the user to submit when all data has been entered and there
+    aren't any validation errors.  The data posted to httpbin.org should include
+    all data defined in the form above (e.g., visible and hidden fields).
 
-      5. Use two different Web Fonts for your store.  The titles should be different
-      from any regular text.  Use a free font service like https://fonts.google.com/
-      or any other that you choose.  You can also experiment with different font
-      sizes and colours to draw attention toward or away from various parts of
-      your design.
-
-      6. Pick a colour theme using a tool like https://colorhunt.co/ with at least
-      3 colours (primary, secondary, accent), and use them throughout your site
-      for backgrounds, borders, fonts. Your store page needs to look attractive
-      and marks will be given for good a good looking site.  No one will buy from
-      a store that looks like its owners aren't professional or don't care about
-      details.  Also make sure that the colour contrast in your site is suitable
-      for everyone to read.
-
-      7. Use modern CSS to help you achieve your layout.  For example, Flexbox
-      and CSS Grid can help you create professional looking layouts.  Here
-      are some guides to get you started:
-
-       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS-Flexible-Box-Layout/Basic-Concepts-of-Flexbox
-       - https://developer.mozilla.org/en-US/docs/Web/CSS/CSS-Grid-Layout/Basic-Concepts-of-Grid-Layout
-       
-      You are also welcome to use existing CSS libraries to help you with your layout,
-      but you must also include your own styles (i.e., you can't use a library
-      for everything in your design).
-
-      8. Make sure you don't use copyrighted materials from other sites.  If you use
-      icons, fonts, images, etc., make sure you are legally permitted to reuse them,
-      and include references to indicate where you got them. Some resources to consider:
-
-        - https://unsplash.com/ for images
-        - https://fontawesome.com/ for icons
-        - https://gallery.manypixels.co/ or https://undraw.co/illustrations for illustrations (SVG)
-
-      9. Make sure you reduce the download size of images you include in your
-      store.  Users don't want to download 10s or 100s of megabytes of data, especially
-      on mobile.  You can use an online tool like https://squoosh.app/ to help you
-      reduce images.  You will lose marks if your images aren't optimized for the web.
-       
-
-      10. Make sure you have no JavaScript or other errors in your Dev Tools Console.
-      Run your site, and test all aspects of it with the Console open, and fix
-      any issues you encounter.
-
-      11. Make sure your forms all work as they should, testing them yourself,
-      and also have someone else test it for you.  The easiest way to find bugs
-      in software is to let someone who didn't build it try to use it!
-      
-    -->
+  -->
