@@ -333,4 +333,10 @@ label[for='order-number'] {
   textarea {
     width: 100%;
   }
+   #email {
+    width: 100%;
+  }
+  #address {
+    width: 100%;
+  }
 }
