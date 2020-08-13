@@ -1,3 +1,6 @@
+//Contact Us page
+//order_problem showing / not showing
+
 //Index.html -------------------------------------------------------
 function getItem(elem, title, price, itemNo, detail) {
   let saleEd = document.getElementById('container');
@@ -56,46 +59,51 @@ function removeClass(ele, name) {
 }
 
 function showOrderNumber() {
-  var form = document.getElementById('contact');
+  let form = document.getElementById('contact');
   form.order_number.setAttribute('type', 'text');
   form.order_number.style.display = 'block';
   document.getElementById('order_number_label').style.display = 'block';
 }
 function deleteOrderNumber() {
-  var form = document.getElementById('contact');
+  let form = document.getElementById('contact');
   form.order_number.setAttribute('type', 'hidden');
   document.getElementById('order_number_label').style.display = 'none';
 }
 //Contacts ----------------------------------------------------------
 //side menu showing current category
 window.onload = function() {
-  let btnContainer = document.getElementById('menu-bar');
-  let btns = btnContainer.getElementsByClassName('btn');
-  for (var i = 0; i < btns.length; i++) {
-    btns[i].addEventListener('click', function() {
-      var current = document.getElementsByClassName('active');
-      current[0].className = current[0].className.replace(' active', '');
-      this.className += ' active';
-    });
+  let form = document.getElementById('contact');
+  if (form) {
+    form['order_problem'].addEventListener('click', showOrderNumber);
+    form.comment.addEventListener('click', deleteOrderNumber);
+    form.question.addEventListener('click', deleteOrderNumber);
   }
+  let btnContainer = document.getElementById('menu-bar');
+  if (btnContainer) {
+    let btns = btnContainer.getElementsByClassName('btn');
+
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener('click', function() {
+        var current = document.getElementsByClassName('active');
+        current[0].className = current[0].className.replace(' active', '');
+        this.className += ' active';
+      });
+    }
+  }
+
   //req10. All images are downsized(under 500KB).
-  getItem('bag', 'Navy', '$30', '1', 'comfortable navy color echo bag');
-  getItem('bag', 'Ivory', '$25', '2', 'comfortable ivory color echo bag');
-  getItem('sticker', 'Sunflower', '$7', '1', 'a cat with sunflower');
-  getItem('sticker', 'Big Laptop', '$7', '2', 'easily removable sticker for laptop');
-  getItem('sticker', 'Pond', '$7', '3', 'chilling cat in a pond');
-  getItem('sticker', 'Travel Cat', '$7', '4', 'traveling items with a cat');
-  getItem('sticker', 'Bike Cat', '$7', '5', 'a cat going to a picnic');
-  getItem('sticker', 'Nature Cat', '$7', '6', 'a cat in a nature');
-  getItem('sticker', 'Camping Cat', '$7', '7', 'camping items with a cat');
-  getItem('sticker', 'Picnic Cat', '$7', '8', 'a cat in the Wonderland');
-
-  filterSelect('all');
-
-  //Contact Us page
-  //order_problem showing / not showing
-  var form = document.getElementById('contact');
-  form.order_problem.addEventListener('click', showOrderNumber);
-  form.comment.addEventListener('click', deleteOrderNumber);
-  form.question.addEventListener('click', deleteOrderNumber);
+  let saleEd = document.getElementById('container');
+  if (saleEd) {
+    getItem('bag', 'Navy', '$30', '1', 'comfortable navy color echo bag');
+    getItem('bag', 'Ivory', '$25', '2', 'comfortable ivory color echo bag');
+    getItem('sticker', 'Sunflower', '$7', '1', 'a cat with sunflower');
+    getItem('sticker', 'Big Laptop', '$7', '2', 'easily removable sticker for laptop');
+    getItem('sticker', 'Pond', '$7', '3', 'chilling cat in a pond');
+    getItem('sticker', 'Travel Cat', '$7', '4', 'traveling items with a cat');
+    getItem('sticker', 'Bike Cat', '$7', '5', 'a cat going to a picnic');
+    getItem('sticker', 'Nature Cat', '$7', '6', 'a cat in a nature');
+    getItem('sticker', 'Camping Cat', '$7', '7', 'camping items with a cat');
+    getItem('sticker', 'Picnic Cat', '$7', '8', 'a cat in the Wonderland');
+    filterSelect('all');
+  }
 };
