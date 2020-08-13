@@ -2,6 +2,7 @@
 <html>
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Giant Cat|Contact</title>
     <link
       rel="stylesheet"
@@ -11,172 +12,184 @@
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/font-awesome/4.6.0/css/font-awesome.min.css"
     />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css" />  
   </head>
   <body>
     <!--Req1. Use the same header/footer-->
-    <header>
-      <div class="header">
-        <div class="logo">
-          <a href="index.html"><img id="logo" src="images/logo.jpg" width="70" height="70"/></a>
-          <a href="index.html">Giant Cat's Store</a>
-          - Make your day cuter!
+    <div class="contact-container">
+      <!--req1. header-->
+       <!--req1. header-->
+       <div class="item1">
+        <header>
+          <div class="header">
+            <div class="logo">
+              <a href="index.html"><img id="logo" src="images/logo.jpg" width="70" height="70"/></a>
+            </div>
+            <div class="store-name">
+              <a href="index.html">Giant Cat's Store</a>
+              - Make your day cuter!
+            </div>
+            <div class="contact"><a href="contact.html">Contact Us</a></div>
+          </div>
+         </header>
         </div>
-        <div class="contact"><a href="contact.html">Contact Us</a></div>
+        <div class="item5">
+          <div class="contact-title" id="contact-title"><h3>Send us a message!</h3></div>
+          <div class="input-container">
+            <!--Req3. The form should submit to https://httpbin.org/post using the POST method,
+            and only allow the user to submit when all data has been entered and there
+            aren't any validation errors. -->
+            <form id="contact" name="contact" action="https://httpbin.org/post" method="POST">
+              <!--Req2. Use input tag for first name-->
+              <label for="first-name">First Name:</label><br />
+              <input
+                type="text"
+                name="first-name"
+                id="first-name"
+                autocomplete="first-name"
+                placeholder="John"
+                title="Your first name here please"
+                required
+              /><br />
+              <!--Req2. Use input tag for last name-->
+              <label for="last-name">Last Name:</label><br />
+              <input
+                type="text"
+                name="last name"
+                id="last-name"
+                autocomplete="last-name"
+                placeholder="Doe"
+                required
+              /><br />
+              <!--Req2. Use input tag for email address-->
+              <label for="email">Email address:</label><br />
+              <input
+                type="email"
+                name="email"
+                id="email"
+                autocomplete="email"
+                placeholder="email@email.com"
+                size="30"
+                required
+              /><br />
+              <!--Req2. Use input tag for address-->
+              <label for="address">Address:</label><br />
+              <input
+                type="text"
+                name="address"
+                id="address"
+                autocomplete="address"
+                placeholder="Enter your address"
+                size="30"
+                required
+              /><br />
+              <!--Req2. Use input tag for city-->
+              <label for="city">City:</label><br />
+              <input
+                list="cityList"
+                name="city"
+                id="city"
+                autocomplete="city"
+                placeholder="city"
+                required
+              /><datalist id="cityList">
+                <option value="Toronto"> </option>
+                <option value="Montreal"> </option>
+                <option value="Calgary"> </option>
+                <option value="Ottawa"> </option>
+                <option value="Edmonton"> </option>
+                <option value="Mississauga"> </option>
+                <option value="Winnipeg"> </option>
+                <option value="Vancouver"> </option>
+                <option value="Brampton"> </option>
+                <option value="Hamilton"> </option>
+                <!-- all canadian cities list needed?? -->
+              </datalist>
+              </br>
+              <!--Req2. Use input tag for phone number. Validation check with regx-->
+              <label for="phone">Phone number:</label><br />
+              <input
+                type="tel"
+                name="phone"
+                id="phone"
+                autocomplete="phone"
+                placeholder="647-111-2222"
+                pattern="([0-9]{3}-[0-9]{3}-[0-9]{3})|([0-9]{10})"
+                required
+              /><br />
+              <!--Req2. Checkbox Option to be phoned-->
+              <input
+                type="checkbox" id="phone-check" name="phone-check">
+                <label for="phone-check">Would you like to be phoned?</label>
+                <br />
+              <!--Req2. Postal Code (must be a valid Canadian Postal Code, use regex) -->
+              <label for="Postal Code">Postal code:</label><br />
+              <input
+                type="text"
+                name="postal-code"
+                id="postal-code"
+                autocomplete="postal-code"
+                placeholder="M1H 2N1"
+                pattern="([a-z]|[A-Z]){1}[0-9]([a-z]|[A-Z]){1} [0-9]([a-z]|[A-Z])[0-9]"
+                required
+              /><br />
+              <br />
+              
+              <!---Req2. Radio Options to specify what this is about: one of "Question",
+              "Comment", or "Order Problem". If the user selects "Order Problem",
+              dynamically reveal another input box to enter the order number. In the
+              case of "Comment" or "Question" hide this input box.
+              -->
+              <h6>What's your message about?</h6>
+              <input type="radio" id="question" name="problem-category" value="question">
+              <label for="question">Question</label>
+              <input type="radio" id="comment" name="problem-category" value="comment">
+              <label for="comment">Comment</label>
+              <input type="radio" id="order-problem" name="problem-category" value="order-problem">
+              <label for="order-problem">Order problem</label><br/>
+              <label for="order-number" name="problem-category" id="order-number-label">Order number:</label>
+              <input type="hidden" id="order-number" name="problem-category" placeholder="#123456">
+              <!--Req2. A large area to enter the message that they want to send-->
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Please leave your message here"
+                rows="4" cols="50"
+              ></textarea>
+              <br />
+              <br />
+              <input type="submit" vaule="submit">
+              <!-- A hidden input field with your name -->
+              <input type="hidden" value="Yuri Yoon">
+            </form>
+          </div>
+        </div>
+  
+      <!--Req1. Use the same header/footer-->
+      <div class="item4">
+        <footer class="footer">
+          <div class="footer-contents" id="footer-contents">
+            <!--req8. all copyright is on illustrator Lee Ja-young and have permission to use-->
+            <a href="https://smartstore.naver.com/illust-jayoi" target="-blank"
+              >Giant Cat's Store</a
+            >
+            | &copy; Copyright 2020, Lee Ja-young. All rights reserved.<br />
+            <form action="https://formspree.io/yuriyoonkim@gmail.com" method="POST">
+              <label for="subscr-email">Are you interested of our newsletter? </label>
+              <input
+                type="email"
+                id="subscr-email"
+                name="subsicr-email"
+                placeholder="email@email.com"
+                autocomplete="email"
+                required
+              />
+              <input type="submit" value="subscribe" />
+            </form>
+          </div>
+        </footer>
       </div>
-    </header>
-
-    <main>
-      <div id="contact_title"><h3>Send us a message!</h3></div>
-      <div class="input_container">
-        <!--Req3. The form should submit to https://httpbin.org/post using the POST method,
-    and only allow the user to submit when all data has been entered and there
-    aren't any validation errors.  The data posted to httpbin.org should include
-    all data defined in the form above (e.g., visible and hidden fields).-->
-        <form id="contact" name="contact" action="https://httpbin.org/post" method="POST">
-          <!--Req2. Use input tag for first name-->
-          <label for="first_name">First Name:</label><br />
-          <input
-            type="text"
-            name="first_name"
-            id="first_name"
-            autocomplete="first_name"
-            placeholder="John"
-            title="Your first name here please"
-            required
-          /><br />
-          <!--Req2. Use input tag for last name-->
-          <label for="last_name">Last Name:</label><br />
-          <input
-            type="text"
-            name="last name"
-            id="last_name"
-            autocomplete="last_name"
-            placeholder="Doe"
-            required
-          /><br />
-          <!--Req2. Use input tag for email address-->
-          <label for="email">Email address:</label><br />
-          <input
-            type="email"
-            name="email"
-            id="email"
-            autocomplete="email"
-            placeholder="email@email.com"
-            size="30"
-            required
-          /><br />
-          <!--Req2. Use input tag for address-->
-          <label for="address">Address:</label><br />
-          <input
-            type="text"
-            name="address"
-            id="address"
-            autocomplete="address"
-            placeholder="Enter your address"
-            size="30"
-            required
-          /><br />
-          <!--Req2. Use input tag for city-->
-          <label for="city">City:</label><br />
-          <input
-            list="cityList"
-            name="city"
-            id="city"
-            autocomplete="city"
-            placeholder="city"
-            required
-          /><datalist id="cityList">
-            <option value="Toronto"> </option>
-            <option value="Montreal"> </option>
-            <option value="Calgary"> </option>
-            <option value="Ottawa"> </option>
-            <option value="Edmonton"> </option>
-            <option value="Mississauga"> </option>
-            <option value="Winnipeg"> </option>
-            <option value="Vancouver"> </option>
-            <option value="Brampton"> </option>
-            <option value="Hamilton"> </option>
-            <!-- all canadian cities list needed?? -->
-          </datalist>
-        </br>
-        <!--Req2. Use input tag for phone number. Validation check with regx-->
-          <label for="phone">Phone number:</label><br />
-          <input
-            type="tel"
-            name="phone"
-            id="phone"
-            autocomplete="phone"
-            placeholder="647-111-2222"
-            pattern="([0-9]{3}-[0-9]{3}-[0-9]{3})|([0-9]{10})"
-            required
-          /><br />
-          <!--Req2. Checkbox Option to be phoned-->
-          <input
-            type="checkbox" id="phone_check" name="phone_check">
-            <label for="phone_check">Would you like to be phoned?</label>
-            <br />
-          <!--Req2. Postal Code (must be a valid Canadian Postal Code, use regex) -->
-          <label for="Postal Code">Postal code:</label><br />
-          <input
-            type="text"
-            name="postal-code"
-            id="postal-code"
-            autocomplete="postal-code"
-            placeholder="M1H 2N1"
-            pattern="([a-z]|[A-Z]){1}[0-9]([a-z]|[A-Z]){1} [0-9]([a-z]|[A-Z])[0-9]"
-            required
-          /><br />
-          <br />
-          
-        <!---Req2. Radio Options to specify what this is about: one of "Question",
-          "Comment", or "Order Problem". If the user selects "Order Problem",
-          dynamically reveal another input box to enter the order number. In the
-          case of "Comment" or "Question" hide this input box.
-        -->
-        <h6>What's your message about?</h6>
-        <input type="radio" id="question" name="problem_category" value="question">
-        <label for="question">Question</label>
-        <input type="radio" id="comment" name="problem_category" value="comment">
-        <label for="comment">Comment</label>
-        <input type="radio" id="order_problem" name="problem_category" value="order_problem">
-        <label for="order_problem">Order problem</label><br/>
-        <label for="order_number" name="problem_category" id="order_number_label">Order number</label>
-        <input type="hidden" id="order_number" name="problem_category" placeholder="#123456">
-        <!--Req2. A large area to enter the message that they want to send-->
-          <textarea
-            id="message"
-            name="message"
-            placeholder="Please leave your message here"
-            rows="4" cols="50"
-          ></textarea>
-          <br />
-          <br />
-          <input type="submit" vaule="submit"></button>
-        <!-- A hidden input field with your name -->
-          <input type="hidden" value="Yuri Yoon">
-        </form>
-      </div>
-    </main>
-    
-  <!--Req1. Use the same header/footer-->
-  <footer class="footer">
-    <div id="footer_contents">
-      <form action="https://formspree.io/yuriyoonkim@gmail.com" method="POST">
-        <a href="https://smartstore.naver.com/illust_jayoi" target="_blank"
-          >Giant Cat's Store</a>
-           | &copy; Copyright 2020, Lee Ja-young. All rights reserved.<br>
-        <label for="subscr_email">Are you interested of our newsletter? </label>
-          <input
-          type="text"
-          id="subscr_email"
-          name="subsicr_email"
-          placeholder="email@email.com"
-        />
-        <input id="contact_button" type="submit" value="subscribe" />
-      </form>
     </div>
-  </footer>
   <script type="text/javascript" src="script.js"></script>
 </body>
 </html>
