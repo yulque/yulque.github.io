@@ -1,7 +1,5 @@
-//Contact Us page
-//order_problem showing / not showing
-
 //Index.html -------------------------------------------------------
+// get all items' information
 function getItem(elem, title, price, itemNo, detail) {
   let saleEd = document.getElementById('container');
   let item = document.createElement('div');
@@ -9,6 +7,7 @@ function getItem(elem, title, price, itemNo, detail) {
   item.setAttribute('class', `filterDiv ${elem}`);
   let img = new Image();
   img.src = `images/${elem}${itemNo}.jpg`;
+  img.alt = `${elem}${itemNo}`;
   item.appendChild(img);
 
   let desc = document.createElement('div');
@@ -18,6 +17,7 @@ function getItem(elem, title, price, itemNo, detail) {
   item.appendChild(desc);
   saleEd.appendChild(item);
 }
+//filter by category
 function filterSelect(choice) {
   let titleBoxEl = document.getElementById('title-box');
   titleBoxEl.innerHTML = `<h3>${choice}</h3>`;
@@ -57,27 +57,30 @@ function removeClass(ele, name) {
   }
   ele.className = arr1.join(' ');
 }
-
+//contact.html --------------------------------------------------------
+//show orderNumber input field when order problem radio button is clicked
 function showOrderNumber() {
   let form = document.getElementById('contact');
-  form.order_number.setAttribute('type', 'text');
-  form.order_number.style.display = 'block';
-  document.getElementById('order_number_label').style.display = 'block';
+  form['order-number'].setAttribute('type', 'text');
+  form['order-number'].style.display = 'block';
+  document.getElementById('order-number-label').removeAttribute('hidden');
 }
+//remover orderNumber input field when other buttons are clicked
 function deleteOrderNumber() {
   let form = document.getElementById('contact');
-  form.order_number.setAttribute('type', 'hidden');
-  document.getElementById('order_number_label').style.display = 'none';
+  form['order-number'].setAttribute('type', 'hidden');
+  document.getElementById('order-number-label').setAttribute('hidden', '');
 }
-//Contacts ----------------------------------------------------------
-//side menu showing current category
+
 window.onload = function() {
+  //contact.html
   let form = document.getElementById('contact');
   if (form) {
-    form['order_problem'].addEventListener('click', showOrderNumber);
+    form['order-problem'].addEventListener('click', showOrderNumber);
     form.comment.addEventListener('click', deleteOrderNumber);
     form.question.addEventListener('click', deleteOrderNumber);
   }
+  //index.html - active buttons
   let btnContainer = document.getElementById('menu-bar');
   if (btnContainer) {
     let btns = btnContainer.getElementsByClassName('btn');
