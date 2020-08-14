@@ -20,7 +20,9 @@ function getItem(elem, title, price, itemNo, detail) {
 //filter by category
 function filterSelect(choice) {
   let titleBoxEl = document.getElementById('title-box');
+  titleBoxEl.setAttribute('class', `title-box filterDiv show ${choice}`);
   titleBoxEl.innerHTML = `<h3>${choice}</h3>`;
+
   let item = document.getElementsByClassName('filterDiv');
   if (choice === 'all') {
     choice = '';
