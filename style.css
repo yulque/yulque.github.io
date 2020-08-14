@@ -136,6 +136,10 @@ section {
 .title-box {
   margin: 2% 5%;
   padding: 10px 10px;
+  text-align: left;
+}
+.title-box h3 {
+  text-align: left;
 }
 .container {
   display: grid;
